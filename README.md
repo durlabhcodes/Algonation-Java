@@ -1,4 +1,4 @@
-# Algorithms
+# Algonation
 Implementation of Algorithms used in Computation
 
 List of algorithms to be implemented:
