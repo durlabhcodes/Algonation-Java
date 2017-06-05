@@ -3,6 +3,7 @@ package com.algonation.sorting.factory;
 import com.algonation.sorting.sorters.BubbleSort;
 import com.algonation.sorting.sorters.ISorter;
 import com.algonation.sorting.sorters.InsertionSort;
+import com.algonation.sorting.sorters.SelectionSort;
 
 public class SorterFactory {
 
@@ -12,6 +13,8 @@ public class SorterFactory {
 			return new InsertionSort();
 		case 2:
 			return new BubbleSort();
+		case 3:
+			return new SelectionSort();
 		default:
 			return null;
 		}
