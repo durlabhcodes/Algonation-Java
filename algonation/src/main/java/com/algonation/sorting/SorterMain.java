@@ -1,24 +1,20 @@
 package com.algonation.sorting;
 
-import java.text.DecimalFormat;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import com.algonation.sorting.factory.SorterFactory;
 import com.algonation.sorting.sorters.ISorter;
+import com.algonation.sorting.util.SortUtil;
 
 public class SorterMain {
 	public static void main(String[] args) {
 
 		double[] input = { 11, 21, 9, 16, 2, 0.12, 334, -10, 1 };
-		ISorter sorter = SorterFactory.getSorter(1);
-		printNumbers(sorter.sort(input));
+		ISorter sorter = SorterFactory.getSorter(2);
+		Double[] inputArr = Arrays.stream(input).boxed().collect(Collectors.toList()).toArray(new Double[input.length]);
+		SortUtil.printNumbers(sorter.sort(inputArr));
 	}
 	
-	private static void printNumbers(double[] input) {
-		DecimalFormat format = new DecimalFormat();
-        format.setDecimalSeparatorAlwaysShown(false);
-		for (int i = 0; i < input.length; i++) {
-			System.out.print(format.format(input[i]) + ", ");
-		}
-		System.out.println("\n");
-	}
+	
 }

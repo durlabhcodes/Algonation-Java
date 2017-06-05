@@ -3,9 +3,8 @@ package com.algonation.sorting.sorters;
 public class InsertionSort implements ISorter{
 	
 	@Override
-	public double[] sort(double[] array) {
-		int N = array.length;
-		for(int j=1;j<N;j++) {
+	public Double[] sort(Double[] array) {
+		for(int j=1;j<array.length;j++) {
 			double key = array[j];
 			int i = j-1;
 			while((i>-1) && (array[i] > key)) {
