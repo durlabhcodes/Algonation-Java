@@ -4,6 +4,7 @@ import com.algonation.sorting.sorters.BubbleSort;
 import com.algonation.sorting.sorters.ISorter;
 import com.algonation.sorting.sorters.InsertionSort;
 import com.algonation.sorting.sorters.MergeSort;
+import com.algonation.sorting.sorters.QuickSort;
 import com.algonation.sorting.sorters.SelectionSort;
 
 public class SorterFactory {
@@ -18,6 +19,8 @@ public class SorterFactory {
 			return new SelectionSort();
 		case 4:
 			return new MergeSort();
+		case 5:
+			return new QuickSort();
 		default:
 			return null;
 		}
