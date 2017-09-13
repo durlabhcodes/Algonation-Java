@@ -1,6 +1,7 @@
 package com.algonation.sorting.factory;
 
 import com.algonation.sorting.sorters.BubbleSort;
+import com.algonation.sorting.sorters.HeapSort;
 import com.algonation.sorting.sorters.ISorter;
 import com.algonation.sorting.sorters.InsertionSort;
 import com.algonation.sorting.sorters.MergeSort;
@@ -21,6 +22,8 @@ public class SorterFactory {
 			return new MergeSort();
 		case 5:
 			return new QuickSort();
+		case 6:
+			return new HeapSort();
 		default:
 			return null;
 		}

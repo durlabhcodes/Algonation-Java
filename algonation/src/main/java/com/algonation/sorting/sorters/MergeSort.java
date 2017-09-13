@@ -5,42 +5,47 @@ public class MergeSort implements ISorter {
 	@Override
 	public Double[] sort(Double[] array) {
 		int n = array.length;
-		if (n > 1) {
-			int mid = n >> 1;
+		if(n>1) {
+			int mid = n/2;
 			Double[] left = new Double[mid];
-			Double[] right = new Double[n - mid];
-			for (int i = 0; i < mid; i++) {
-				left[i] = array[i];
+			Double[] right = new Double[n-mid];
+			
+			for(int l=0; l<mid; l++) {
+				left[l] = array[l];
 			}
-			for (int i = mid; i < n; i++) {
-				right[i - mid] = array[i];
+			
+			for(int r=0; r<n-mid; r++) {
+				right[r] = array[mid+r];
 			}
-
+			
 			sort(left);
 			sort(right);
-
-			int a = 0, b = 0, c = 0;
-
-			while (a < mid && b < (n - mid)) {
-				if (left[a] > right[b]) {
-					array[c] = right[b];
-					b++;
+			
+			int l_counter=0, r_counter=0,main_counter=0;
+			
+			while(l_counter<mid && r_counter<n-mid) {
+				if(left[l_counter] > right[r_counter]) {
+					array[main_counter] = right[r_counter];
+					main_counter++;
+					r_counter++;
 				} else {
-					array[c] = left[a];
-					a++;
+					array[main_counter] = left[l_counter];
+					main_counter++;
+					l_counter++;
 				}
-				c++;
+				
 			}
-
-			while (a < mid) {
-				array[c] = left[a];
-				c++;
-				a++;
+			
+			while(l_counter<mid) {
+				array[main_counter] = left[l_counter];
+				main_counter++;
+				l_counter++;
 			}
-			while (b < n - mid) {
-				array[c] = right[b];
-				b++;
-				a++;
+			
+			while(r_counter<n-mid) {
+				array[main_counter] = right[r_counter];
+				main_counter++;
+				r_counter++;
 			}
 		}
 		return array;
