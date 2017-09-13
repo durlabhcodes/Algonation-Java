@@ -1,4 +1,4 @@
-package com.algonation.sorting.util;
+package com.algonation.sort.util;
 
 import java.text.DecimalFormat;
 

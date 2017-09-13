@@ -1,4 +1,4 @@
-package com.algonation.sorting.sorters;
+package com.algonation.sort.sorters;
 
 public class MergeSort implements ISorter {
 

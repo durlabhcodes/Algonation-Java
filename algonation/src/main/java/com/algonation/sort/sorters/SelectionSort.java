@@ -1,6 +1,6 @@
-package com.algonation.sorting.sorters;
+package com.algonation.sort.sorters;
 
-import com.algonation.sorting.util.SortUtil;
+import com.algonation.sort.util.SortUtil;
 
 public class SelectionSort implements ISorter{
 
