@@ -6,8 +6,7 @@ public class DoublyLinkedList<K> implements List<K> {
 	
 	public class Node<T> {
 		T element;
-		Node<T> next;
-		Node<T> previous;
+		Node<T> next, previous;
 		
 		Node(T element) {
 			this.element = element;
@@ -39,8 +38,10 @@ public class DoublyLinkedList<K> implements List<K> {
 
 	@Override
 	public void addFirst(K element) {
-		// TODO Auto-generated method stub
-		
+		Node<K> newNode = new Node<K>(element);
+		head.previous = newNode;
+		newNode.next = head;
+		head = newNode;
 	}
 
 	@Override
@@ -66,5 +67,18 @@ public class DoublyLinkedList<K> implements List<K> {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	@Override
+	public String toString() {
+		StringBuffer buffer = new StringBuffer("[");
+		Node<K> node = head;
+		if(node==null) {
+			return null;
+		}
+		while(node!=null) {
+			buffer.append(node.element+", ");
+			node = node.next;
+		}
+		return buffer.toString().substring(0,buffer.length()-2)+"]";
+	}
 }
