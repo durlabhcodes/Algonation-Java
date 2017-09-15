@@ -7,4 +7,5 @@ public interface List<E> {
 	public void remove(int index);
 	public void removeFirst();
 	public void removeLast();
+	public int size();
 }

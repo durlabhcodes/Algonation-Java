@@ -1,19 +1,23 @@
 package com.algonation.datastructure.list;
 
-public class DoublyLinkedList<K> implements List<K> {
+public class DoublyLinkedList<K> extends AbstractList<K> {
 	
 	Node<K> head;
 	
-	public class Node<T> {
-		T element;
+	public class Node<T> extends AbstractListNode<T> {
 		Node<T> next, previous;
+		
 		
 		Node(T element) {
 			this.element = element;
-			this.next = null;
+			this.next = (Node<T>) super.next;
 			this.previous = null;
 		}
 		
+		public void setNext(Node<T> next) {
+			this.next = next;
+			super.next = next;
+		}
 		@Override
 		public String toString() {
 			return this.element.toString();
@@ -30,7 +34,8 @@ public class DoublyLinkedList<K> implements List<K> {
 			while(node.next != null) {
 				node = node.next;
 			}
-			node.next=newNode;
+			node.setNext(newNode);
+			
 			newNode.previous=node;
 		}
 		
@@ -40,32 +45,73 @@ public class DoublyLinkedList<K> implements List<K> {
 	public void addFirst(K element) {
 		Node<K> newNode = new Node<K>(element);
 		head.previous = newNode;
-		newNode.next = head;
+		newNode.setNext(head);
 		head = newNode;
 	}
 
 	@Override
 	public void add(int index, K element) {
-		// TODO Auto-generated method stub
-		
+		int counter = 1;
+		Node<K> node = head;
+		if(index == 0) {
+			addFirst(element);
+			return;
+		}
+		while(index!=counter) {
+			node = node.next;
+			counter++;
+			if(node == null) {
+				throw new ArrayIndexOutOfBoundsException("Index Out Of List Size");
+			}
+		}
+		Node<K> newNode = new Node<K>(element);
+		newNode.previous = node;
+		newNode.setNext(node.next);
+		node.setNext(newNode);
+		newNode.next.previous = newNode;
 	}
 
 	@Override
 	public void remove(int index) {
-		// TODO Auto-generated method stub
+		int counter = 0;
+		if(index == 0) {
+			removeFirst();
+			return;
+		}
 		
+		Node<K> node = head;
+		while(index!=counter) {
+			node = node.next;
+			counter++;
+			if(node == null) {
+				throw new ArrayIndexOutOfBoundsException("Index Out Of List Size");
+			}
+		}
+		
+		node.previous.setNext(node.next);
+		if(node.next != null){
+			node.next.previous = node.previous;
+		}
 	}
 
 	@Override
 	public void removeFirst() {
-		// TODO Auto-generated method stub
+		Node<K> node = head.next;
+		node.previous = null;
+		head.setNext(null);
+		head = node;
 		
 	}
 
 	@Override
 	public void removeLast() {
-		// TODO Auto-generated method stub
-		
+		Node<K> node = head;
+		while(node.next!=null) {
+			node = node.next;
+		}
+		Node<K> previousNode = node.previous;
+		previousNode.setNext(null);
+		node.previous = null;
 	}
 	
 	@Override
@@ -80,5 +126,10 @@ public class DoublyLinkedList<K> implements List<K> {
 			node = node.next;
 		}
 		return buffer.toString().substring(0,buffer.length()-2)+"]";
+	}
+	
+	@Override
+	public int size() {
+		return super.size(head);
 	}
 }

@@ -1,21 +1,24 @@
 package com.algonation.datastructure.list;
 
-public class LinkedList<K> implements List<K>{
+public class LinkedList<K> extends AbstractList<K>{
 
 	Node<K> head;
 	
-	public class Node<T> {
-		T data;
+	public class Node<T> extends AbstractListNode<T> {
 		Node<T> next;
 		
-		Node(T data) {
-			this.data = data;
-			this.next = null;
+		Node(T element) {
+			this.element = element;
+			this.next = (Node<T>) super.next;
 		}
 		
+		public void setNext(Node<T> next) {
+			this.next = next;
+			super.next = next;
+		}
 		@Override
 		public String toString() {
-			return this.data.toString();
+			return this.element.toString();
 		}
 	}
 	
@@ -30,7 +33,7 @@ public class LinkedList<K> implements List<K>{
 				lastNode = lastNode.next;
 			}
 			
-			lastNode.next = node;
+			lastNode.setNext(node);
 		}
 	}
 	
@@ -41,7 +44,7 @@ public class LinkedList<K> implements List<K>{
 			head = newNode;
 			return;
 		}
-		newNode.next = head;
+		newNode.setNext(head);
 		head = newNode;
 	}
 	
@@ -63,8 +66,8 @@ public class LinkedList<K> implements List<K>{
 		}
 		
 		Node<K> nextNode = node.next;
-		node.next = newNode;
-		newNode.next = nextNode;
+		node.setNext(newNode);
+		newNode.setNext(nextNode);
 	}
 	
 	@Override
@@ -88,7 +91,7 @@ public class LinkedList<K> implements List<K>{
 		}
 		Node<K> nextNode = node.next;
 		
-		previousNode.next = nextNode;
+		previousNode.setNext(nextNode);
 	}
 	
 	@Override
@@ -107,7 +110,7 @@ public class LinkedList<K> implements List<K>{
 			previousNode = currentNode;
 			currentNode = currentNode.next;
 		}
-		previousNode.next = null;
+		previousNode.setNext(null);
 	}
 
 	@Override
@@ -118,10 +121,14 @@ public class LinkedList<K> implements List<K>{
 			return null;
 		}
 		while(node!=null) {
-			buffer.append(node.data+", ");
+			buffer.append(node.element+", ");
 			node = node.next;
 		}
 		return buffer.toString().substring(0,buffer.length()-2)+"]";
 	}
 	
+	@Override
+	public int size() {
+		return super.size(head);
+	}
 }
