@@ -1,6 +1,6 @@
 package com.algonation.sort.sorters;
 
-import com.algonation.sort.util.SortUtil;
+import com.algonation.util.AlgoUtil;
 
 public class QuickSort implements ISorter {
 
@@ -37,10 +37,10 @@ public class QuickSort implements ISorter {
 			if(low>high) {
 				break;
 			} else {
-				SortUtil.swapByPosition(array, low, high);
+				AlgoUtil.swapByPosition(array, low, high);
 			}
 		}
-		SortUtil.swapByPosition(array, low, right);
+		AlgoUtil.swapByPosition(array, low, right);
 		return low;
 	}
 	

@@ -1,6 +1,6 @@
 package com.algonation.sort.sorters;
 
-import com.algonation.sort.util.SortUtil;
+import com.algonation.util.AlgoUtil;
 
 public class SelectionSort implements ISorter{
 
@@ -9,7 +9,7 @@ public class SelectionSort implements ISorter{
 		for(int i=0;i<array.length;i++) {
 			for(int j=i+1;j<array.length;j++) {
 				if(array[i]>array[j]) {
-					SortUtil.swapByPosition(array, i, j);
+					AlgoUtil.swapByPosition(array, i, j);
 				}
 			}
 		}

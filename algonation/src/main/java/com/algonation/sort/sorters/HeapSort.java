@@ -1,6 +1,6 @@
 package com.algonation.sort.sorters;
 
-import com.algonation.sort.util.SortUtil;
+import com.algonation.util.AlgoUtil;
 
 public class HeapSort implements ISorter {
 
@@ -17,7 +17,7 @@ public class HeapSort implements ISorter {
 		}
 		
 		for(int i=len-1; i>=0; i--) {
-			SortUtil.swapByPosition(array, i, 0);
+			AlgoUtil.swapByPosition(array, i, 0);
 			heapify(array, i, 0);
 		}
 		
@@ -35,7 +35,7 @@ public class HeapSort implements ISorter {
 		}
 		
 		if(largest != i) {
-			SortUtil.swapByPosition(array, i, largest);
+			AlgoUtil.swapByPosition(array, i, largest);
 			heapify(array, len, largest);
 		}
 		

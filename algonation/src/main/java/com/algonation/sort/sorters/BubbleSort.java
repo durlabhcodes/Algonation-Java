@@ -1,6 +1,6 @@
 package com.algonation.sort.sorters;
 
-import com.algonation.sort.util.SortUtil;
+import com.algonation.util.AlgoUtil;
 
 public class BubbleSort implements ISorter {
 
@@ -9,7 +9,7 @@ public class BubbleSort implements ISorter {
 		for(int i=0; i<array.length; i++)
 			for(int j=0; j<array.length-i-1; j++) {
 				if(array[j]>array[j+1]) {
-					SortUtil.swapByPosition(array, j, j+1);
+					AlgoUtil.swapByPosition(array, j, j+1);
 				}
 			}
 		return array;
