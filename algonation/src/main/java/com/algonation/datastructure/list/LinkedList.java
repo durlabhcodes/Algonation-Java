@@ -22,6 +22,9 @@ public class LinkedList<K> extends AbstractList<K>{
 		}
 	}
 	
+	public AbstractListNode<K> getHead() {
+		return head;
+	}
 	@Override
 	public void add(K element) {
 		if(head == null) {
@@ -129,6 +132,22 @@ public class LinkedList<K> extends AbstractList<K>{
 	
 	@Override
 	public int size() {
-		return super.size(head);
+		return super.size(this);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == this) {
+			return true;
+		}
+		if(!(obj instanceof List)) {
+			return false;
+		}
+ 		List<K> toMatch = (List<K>) obj;
+		if(this.size() != toMatch.size()) {
+			return false;
+		}
+		return super.equals(this, toMatch);
 	}
 }

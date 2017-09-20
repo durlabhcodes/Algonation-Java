@@ -4,6 +4,7 @@ public class ListMain {
 
 	public static void main(String[] args) {
 		List<Integer> l = new LinkedList<Integer>();
+		int x = "ava".compareTo("wel");
 		
 		l.add(2);
 		l.add(3);
@@ -11,6 +12,7 @@ public class ListMain {
 		l.add(5);
 		l.add(6);
 		l.add(7);
+		System.out.println(x);/*
 		System.out.println(l+"Size = "+l.size());
 		
 		l.addFirst(10);
@@ -27,6 +29,6 @@ public class ListMain {
 		
 		l.removeLast();
 		System.out.println(l+"Size = "+l.size());
-		
+*/		
 	}
 }
