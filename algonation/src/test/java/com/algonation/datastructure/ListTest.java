@@ -1,7 +1,11 @@
-package com.algonation.datastructure.list;
+package com.algonation.datastructure;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.algonation.datastructure.list.DoublyLinkedList;
+import com.algonation.datastructure.list.LinkedList;
+import com.algonation.datastructure.list.List;
 
 public class ListTest {
 	List<Integer> linkedList = null;

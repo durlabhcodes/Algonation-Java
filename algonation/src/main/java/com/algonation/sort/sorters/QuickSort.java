@@ -3,7 +3,7 @@ package com.algonation.sort.sorters;
 import com.algonation.util.AlgoUtil;
 
 public class QuickSort implements ISorter {
-
+int count=0;
 	@Override
 	public Double[] sort(Double[] array) {
 		
@@ -24,6 +24,7 @@ public class QuickSort implements ISorter {
 		}
 	}
 	private int partition(Double[] array, int low, int right) {
+		System.out.println("Partition call count"+(++count));
 		Double pivot = array[right];
 		int high=right-1;
 		while(true) {
