@@ -133,7 +133,7 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 	
 	@Override
 	public int size() {
-		return super.size(head);
+		return super.size(this);
 	}
 	
 	@SuppressWarnings("unchecked")
