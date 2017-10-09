@@ -3,13 +3,15 @@ package com.algonation.datastructure;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.algonation.datastructure.list.util.ListUtils;
 import com.algonation.datastructure.tree.BinaryTree;
-import com.algonation.datastructure.tree.Tree;
 import com.algonation.datastructure.tree.util.TreeUtils;
 
 public class TreeTest {
 
-	
+	private Integer[] postOrder = {4, 5, 2, 6, 7, 3, 1};
+	private Integer[] preOrder = {1, 2, 4, 5, 3, 6, 7};
+	private Integer[] inOrder = {4, 2, 5, 1, 6, 3, 7};
 	@Test
 	public void maxNodesByLevelTest() {
 		int[] level = {5, 1, 0, -2};
@@ -28,22 +30,22 @@ public class TreeTest {
 		}
 	}
 	
-	private Tree<Integer> generateTestTree() {
-		Tree<Integer> tree = new BinaryTree<Integer>();
-		tree.add(1);
-		tree.add(2);
-		tree.add(3);
-		tree.add(4);
-		tree.add(5);
-		tree.add(6);
-		tree.add(7);
-		return tree;
+	@Test
+	public void inorderTest() {
+		BinaryTree<Integer> tree = new BinaryTree<Integer>().dummyTree();
+		Assert.assertEquals(ListUtils.arrayToList(inOrder), tree.inOrderTraversal(tree.getRoot()));
+	}
+
+	@Test
+	public void preOrderTest() {
+		BinaryTree<Integer> tree = new BinaryTree<Integer>().dummyTree();
+		Assert.assertEquals(ListUtils.arrayToList(preOrder), tree.preOrderTraversal(tree.getRoot()));
 	}
 	
 	@Test
-	public void inorderTest() {
-		generateTestTree();
+	public void postOrderTest() {
+		BinaryTree<Integer> tree = new BinaryTree<Integer>().dummyTree();
+		Assert.assertEquals(ListUtils.arrayToList(postOrder), tree.postOrderTraversal(tree.getRoot()));
 	}
-
 
 }

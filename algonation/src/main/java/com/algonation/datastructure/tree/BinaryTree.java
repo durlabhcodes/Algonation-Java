@@ -1,77 +1,92 @@
 package com.algonation.datastructure.tree;
 
+import com.algonation.datastructure.list.LinkedList;
+import com.algonation.datastructure.list.List;
+
 public class BinaryTree<T> extends AbstractTree<T>{
 
 	AbstractTreeNode<T> root;
-	 boolean added;
-	 
+	List<T> list = new LinkedList<T>();
+	
 	class Node<N> extends AbstractTreeNode<N> {
 		Node(N data, Node<N> left, Node<N> right) {
 			this.data = data;
 			this.left = left;
 			this.right = right;
 		}
+		
+		Node(N data) {
+			this.data = data;
+			this.left = this.right = null;
+		}
+	}
+	
+	@Override
+	public Node<T> getNewNode(T data) {
+		return new Node<T>(data, null, null);
 	}
 	
 	@Override
 	public AbstractTreeNode<T> getRoot() {
 		return root;
 	}
-
-	//Adds in Breadth first order.
-	public void add(T data) {
-		added = false;
-		AbstractTreeNode<T> newNode = new Node<T>(data, null, null);
+	
+	public void setRoot(AbstractTreeNode<T> node) {
 		if(root == null) {
-			root = newNode;
-			return;
+			root = node;
 		}
-		
-		add(data, root, newNode);
+	}
+	@Override
+	public void setRoot(AbstractTreeNode<T> node, boolean updateRoot) {
+		if(updateRoot) {
+			root = node;
+		} else {
+			setRoot(node);
+		}
 	}
 	
-	/*private boolean add(T data, AbstractTreeNode<T> node, AbstractTreeNode<T> newNode) {
-		if(!added) {
-			while(!added || node != null) {
-				if(node.left == null) {
-					node.left = newNode;
-					added = true;
-					return added;
-				} else if(node.right == null) {
-					node.right = newNode;
-					added = true;
-					return added;
-				}
-				if(node.left)
-				added = add(data, node.left, newNode);
-				if(added) break;
-				added = add(data, node.right, newNode);
-				if(added) break;
-			}
+	@Override
+	public List<T> inOrderTraversal(AbstractTreeNode<T> node) {
+		while(node!=null) {
+			inOrderTraversal(node.left);
+			list.add(node.data);
+			inOrderTraversal(node.right);
+			break;
 		}
-		return added;
-	}*/
-	
-	private void add(T data, AbstractTreeNode<T> node, AbstractTreeNode<T> newNode) {
-		
-		
-		if(node.left == null) {
-			node.left = newNode;
-			added = true;
-		} else if(node.right == null) {
-			node.right = newNode;
-			added = true;
-		}
-		
-		
+		return list;
 	}
 	
-	public void inorderTraversal(AbstractTreeNode<T> node) {
-		while(node != null) {
-			inorderTraversal(node.left);
-			System.out.println(node.data + " ");
-			inorderTraversal(node.right);
+	@Override
+	public List<T> preOrderTraversal(AbstractTreeNode<T> node) {
+		while(node!=null) {
+			list.add(node.data);
+			preOrderTraversal(node.left);
+			preOrderTraversal(node.right);
+			break;
 		}
-		
+		return list;
+	}
+	
+	@Override
+	public List<T> postOrderTraversal(AbstractTreeNode<T> node) {
+		while(node!=null) {
+			postOrderTraversal(node.left);
+			postOrderTraversal(node.right);
+			list.add(node.data);
+			break;
+		}
+		return list;
+	}
+	
+	public BinaryTree<Integer> dummyTree() {
+		BinaryTree<Integer> tree = new BinaryTree<Integer>();
+		tree.root = new Node<Integer>(1);
+		tree.root.left = new Node<Integer>(2);
+		tree.root.right = new Node<Integer>(3);
+		tree.root.left.left = new Node<Integer>(4);
+		tree.root.left.right = new Node<Integer>(5);
+		tree.root.right.left= new Node<Integer>(6);
+		tree.root.right.right= new Node<Integer>(7);
+		return tree;
 	}
 }

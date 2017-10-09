@@ -35,5 +35,4 @@ public abstract class AbstractList<K> implements List<K> {
 		return true;
 	}
 	
-	
 }

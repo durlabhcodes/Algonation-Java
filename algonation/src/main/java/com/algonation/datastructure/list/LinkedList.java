@@ -150,4 +150,5 @@ public class LinkedList<K> extends AbstractList<K>{
 		}
 		return super.equals(this, toMatch);
 	}
+	
 }
