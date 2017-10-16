@@ -10,5 +10,6 @@ public interface Tree<I> {
 	public List<I> inOrderTraversal(AbstractTreeNode<I> node);
 	public List<I> preOrderTraversal(AbstractTreeNode<I> node);
 	public List<I> postOrderTraversal(AbstractTreeNode<I> node);
+	public List<I> levelOrderTraversal(AbstractTreeNode<I> node);
 	
 } 

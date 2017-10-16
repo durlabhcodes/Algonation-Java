@@ -1,5 +1,7 @@
 package com.algonation.datastructure.tree;
 
+import java.util.Queue;
+
 import com.algonation.datastructure.list.LinkedList;
 import com.algonation.datastructure.list.List;
 
@@ -78,6 +80,17 @@ public class BinaryTree<T> extends AbstractTree<T>{
 		return list;
 	}
 	
+	@Override
+	public List<T> levelOrderTraversal(AbstractTreeNode<T> node) {
+		Queue<AbstractTreeNode<T>> queue = new java.util.LinkedList<AbstractTreeNode<T>>();
+		while(node!= null) {
+			list.add(node.data);
+			queue.add(node.left);
+			queue.add(node.right);
+			node = queue.poll();
+		}
+		return list;
+	}
 	public BinaryTree<Integer> dummyTree() {
 		BinaryTree<Integer> tree = new BinaryTree<Integer>();
 		tree.root = new Node<Integer>(1);
