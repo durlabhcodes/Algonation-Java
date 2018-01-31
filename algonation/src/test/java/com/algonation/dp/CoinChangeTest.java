@@ -16,11 +16,8 @@ public class CoinChangeTest {
 	
 	@Test
 	public void countTest() {
-		List<Integer> path = new ArrayList<Integer>();
-		List<List<Integer>> pathList = new ArrayList<List<Integer>>();
-		Assert.assertEquals(4, CoinChangeProblem.getCount(inputArr1,path, pathList, result1, inputArr1.length-1));
+		Assert.assertEquals(4, CoinChangeProblem.getCount(inputArr1, result1, inputArr1.length-1));
 	//	Assert.assertEquals(5, CoinChangeProblem.getCount(inputArr2,path, pathList, result2, inputArr2.length-1));
-		System.out.println(pathList);
 	}
 	
 	@Test
