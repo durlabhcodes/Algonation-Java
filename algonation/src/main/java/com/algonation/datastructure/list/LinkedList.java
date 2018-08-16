@@ -16,7 +16,7 @@ public class LinkedList<K> extends AbstractList<K>{
 			this.next = next;
 			super.next = next;
 		}
-		@Override
+		
 		public String toString() {
 			return this.element.toString();
 		}
@@ -25,7 +25,7 @@ public class LinkedList<K> extends AbstractList<K>{
 	public AbstractListNode<K> getHead() {
 		return head;
 	}
-	@Override
+	
 	public void add(K element) {
 		if(head == null) {
 			head = new Node<K>(element);
@@ -40,7 +40,7 @@ public class LinkedList<K> extends AbstractList<K>{
 		}
 	}
 	
-	@Override
+	
 	public void addFirst(K element) {
 		Node<K> newNode = new Node<K>(element);
 		if(head == null) {
@@ -51,7 +51,7 @@ public class LinkedList<K> extends AbstractList<K>{
 		head = newNode;
 	}
 	
-	@Override
+	
 	public void add(int index, K element) {
 		Node<K> node = head;
 		Node<K> newNode = new Node<K>(element);
@@ -73,7 +73,7 @@ public class LinkedList<K> extends AbstractList<K>{
 		newNode.setNext(nextNode);
 	}
 	
-	@Override
+	
 	public void remove(int index) {
 		int counter = 0;
 		Node<K> node = head;
@@ -97,12 +97,12 @@ public class LinkedList<K> extends AbstractList<K>{
 		previousNode.setNext(nextNode);
 	}
 	
-	@Override
+	
 	public void removeFirst() {
 		head = head.next;
 	}
 	
-	@Override
+	
 	public void removeLast() {
 		Node<K> currentNode = head;
 		Node<K> previousNode = null;
@@ -116,7 +116,7 @@ public class LinkedList<K> extends AbstractList<K>{
 		previousNode.setNext(null);
 	}
 
-	@Override
+	
 	public String toString() {
 		StringBuffer buffer = new StringBuffer("[");
 		Node<K> node = head;
@@ -130,13 +130,13 @@ public class LinkedList<K> extends AbstractList<K>{
 		return buffer.toString().substring(0,buffer.length()-2)+"]";
 	}
 	
-	@Override
+	
 	public int size() {
 		return super.size(this);
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public boolean equals(Object obj) {
 		if(obj == this) {
 			return true;

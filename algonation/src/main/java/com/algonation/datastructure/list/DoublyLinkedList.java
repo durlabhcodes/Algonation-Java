@@ -18,7 +18,7 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 			this.next = next;
 			super.next = next;
 		}
-		@Override
+		
 		public String toString() {
 			return this.element.toString();
 		}
@@ -27,7 +27,7 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 	public AbstractListNode<K> getHead() {
 		return head;
 	}
-	@Override
+	
 	public void add(K element) {
 		if(head==null) {
 			head = new Node<K>(element);
@@ -44,7 +44,7 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 		
 	}
 
-	@Override
+	
 	public void addFirst(K element) {
 		Node<K> newNode = new Node<K>(element);
 		head.previous = newNode;
@@ -52,7 +52,7 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 		head = newNode;
 	}
 
-	@Override
+	
 	public void add(int index, K element) {
 		int counter = 1;
 		Node<K> node = head;
@@ -74,7 +74,7 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 		newNode.next.previous = newNode;
 	}
 
-	@Override
+	
 	public void remove(int index) {
 		int counter = 0;
 		if(index == 0) {
@@ -97,7 +97,7 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 		}
 	}
 
-	@Override
+	
 	public void removeFirst() {
 		Node<K> node = head.next;
 		node.previous = null;
@@ -106,7 +106,7 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 		
 	}
 
-	@Override
+	
 	public void removeLast() {
 		Node<K> node = head;
 		while(node.next!=null) {
@@ -117,7 +117,7 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 		node.previous = null;
 	}
 	
-	@Override
+	
 	public String toString() {
 		StringBuffer buffer = new StringBuffer("[");
 		Node<K> node = head;
@@ -131,13 +131,13 @@ public class DoublyLinkedList<K> extends AbstractList<K> {
 		return buffer.toString().substring(0,buffer.length()-2)+"]";
 	}
 	
-	@Override
+	
 	public int size() {
 		return super.size(this);
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public boolean equals(Object obj) {
 		if(obj == this) {
 			return true;

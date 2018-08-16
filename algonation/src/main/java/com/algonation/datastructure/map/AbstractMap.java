@@ -16,22 +16,19 @@ public abstract class AbstractMap<K, V> implements Map<K, V> {
 			this.key = key;
 			this.value = value;
 		}
-		@Override
+
 		public K getKey() {
 			return key;
 		}
 
-		@Override
 		public void setKey(K key) {
 			this.key = key;			
 		}
 
-		@Override
 		public V getValue() {
 			return value;
 		}
 
-		@Override
 		public void setValue(V value) {
 			this.value = value;
 		}

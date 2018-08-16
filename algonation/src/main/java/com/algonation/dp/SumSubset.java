@@ -59,7 +59,7 @@ public class SumSubset {
 	public List<List<Integer>> printAllSumSubset(int[] input, int n, int sum) {
 		if(sum == 0) {
 			List<List<Integer>> finalResult = new LinkedList<>();
-			finalResult.add(new LinkedList<>());
+			finalResult.add(new LinkedList<Integer>());
 			return finalResult;
 		}
 		

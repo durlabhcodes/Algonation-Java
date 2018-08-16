@@ -4,7 +4,6 @@ import com.algonation.sort.factory.SorterFactory;
 
 public class BinarySearch implements ISearcher {
 
-	@Override
 	public int search(Double[] array, Double element) {
 		array = SorterFactory.getSorter(4).sort(array);
 		return binarySearch(array, element, 0, array.length-1);

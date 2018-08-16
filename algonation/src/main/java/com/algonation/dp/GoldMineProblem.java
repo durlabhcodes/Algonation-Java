@@ -40,7 +40,7 @@ public class GoldMineProblem {
 			return new ArrayList<Integer>();
 		}
 		
-		List<Integer> newList = new ArrayList<>();
+		List<Integer> newList = new ArrayList<Integer>();
 		List<Integer> upRight = maxProfitPath(arr, row-1, col+1, res); 
 		List<Integer> downRight = maxProfitPath(arr, row + 1, col + 1, res);
 		

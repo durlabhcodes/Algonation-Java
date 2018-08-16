@@ -23,12 +23,12 @@ public class BinaryTree<T> extends AbstractTree<T>{
 		}
 	}
 	
-	@Override
+	
 	public Node<T> getNewNode(T data) {
 		return new Node<T>(data, null, null);
 	}
 	
-	@Override
+	
 	public AbstractTreeNode<T> getRoot() {
 		return root;
 	}
@@ -38,7 +38,7 @@ public class BinaryTree<T> extends AbstractTree<T>{
 			root = node;
 		}
 	}
-	@Override
+	
 	public void setRoot(AbstractTreeNode<T> node, boolean updateRoot) {
 		if(updateRoot) {
 			root = node;
@@ -47,7 +47,7 @@ public class BinaryTree<T> extends AbstractTree<T>{
 		}
 	}
 	
-	@Override
+	
 	public List<T> inOrderTraversal(AbstractTreeNode<T> node) {
 		while(node!=null) {
 			inOrderTraversal(node.left);
@@ -58,7 +58,7 @@ public class BinaryTree<T> extends AbstractTree<T>{
 		return list;
 	}
 	
-	@Override
+	
 	public List<T> preOrderTraversal(AbstractTreeNode<T> node) {
 		while(node!=null) {
 			list.add(node.data);
@@ -69,7 +69,6 @@ public class BinaryTree<T> extends AbstractTree<T>{
 		return list;
 	}
 	
-	@Override
 	public List<T> postOrderTraversal(AbstractTreeNode<T> node) {
 		while(node!=null) {
 			postOrderTraversal(node.left);
@@ -80,7 +79,6 @@ public class BinaryTree<T> extends AbstractTree<T>{
 		return list;
 	}
 	
-	@Override
 	public List<T> levelOrderTraversal(AbstractTreeNode<T> node) {
 		Queue<AbstractTreeNode<T>> queue = new java.util.LinkedList<AbstractTreeNode<T>>();
 		while(node!= null) {
